@@ -1,0 +1,5 @@
+E:\OwnGit\FascinatingHistory\APP_UserManage\Model\bin\Debug\Model.dll
+E:\OwnGit\FascinatingHistory\APP_UserManage\Model\bin\Debug\Model.pdb
+E:\OwnGit\FascinatingHistory\APP_UserManage\Model\obj\Debug\Model.dll
+E:\OwnGit\FascinatingHistory\APP_UserManage\Model\obj\Debug\Model.pdb
+E:\OwnGit\FascinatingHistory\APP_UserManage\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache

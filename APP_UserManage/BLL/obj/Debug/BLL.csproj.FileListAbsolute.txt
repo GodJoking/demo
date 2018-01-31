@@ -1,0 +1,14 @@
+E:\OwnGit\FascinatingHistory\APP_UserManage\BLL\bin\Debug\BLL.dll
+E:\OwnGit\FascinatingHistory\APP_UserManage\BLL\bin\Debug\BLL.pdb
+E:\OwnGit\FascinatingHistory\APP_UserManage\BLL\bin\Debug\DAL.dll
+E:\OwnGit\FascinatingHistory\APP_UserManage\BLL\bin\Debug\Helper.dll
+E:\OwnGit\FascinatingHistory\APP_UserManage\BLL\bin\Debug\Model.dll
+E:\OwnGit\FascinatingHistory\APP_UserManage\BLL\bin\Debug\MySql.Data.dll
+E:\OwnGit\FascinatingHistory\APP_UserManage\BLL\bin\Debug\log4net.dll
+E:\OwnGit\FascinatingHistory\APP_UserManage\BLL\bin\Debug\DAL.pdb
+E:\OwnGit\FascinatingHistory\APP_UserManage\BLL\bin\Debug\Helper.pdb
+E:\OwnGit\FascinatingHistory\APP_UserManage\BLL\bin\Debug\Model.pdb
+E:\OwnGit\FascinatingHistory\APP_UserManage\BLL\bin\Debug\log4net.xml
+E:\OwnGit\FascinatingHistory\APP_UserManage\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+E:\OwnGit\FascinatingHistory\APP_UserManage\BLL\obj\Debug\BLL.dll
+E:\OwnGit\FascinatingHistory\APP_UserManage\BLL\obj\Debug\BLL.pdb

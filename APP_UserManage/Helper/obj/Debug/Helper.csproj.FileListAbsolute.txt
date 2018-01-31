@@ -1,0 +1,7 @@
+E:\OwnGit\FascinatingHistory\APP_UserManage\Helper\bin\Debug\Helper.dll
+E:\OwnGit\FascinatingHistory\APP_UserManage\Helper\bin\Debug\Helper.pdb
+E:\OwnGit\FascinatingHistory\APP_UserManage\Helper\bin\Debug\log4net.dll
+E:\OwnGit\FascinatingHistory\APP_UserManage\Helper\bin\Debug\log4net.xml
+E:\OwnGit\FascinatingHistory\APP_UserManage\Helper\obj\Debug\Helper.dll
+E:\OwnGit\FascinatingHistory\APP_UserManage\Helper\obj\Debug\Helper.pdb
+E:\OwnGit\FascinatingHistory\APP_UserManage\Helper\obj\Debug\Helper.csprojResolveAssemblyReference.cache

@@ -1,0 +1,12 @@
+E:\OwnGit\FascinatingHistory\APP_UserManage\DAL\bin\Debug\DAL.dll
+E:\OwnGit\FascinatingHistory\APP_UserManage\DAL\bin\Debug\DAL.pdb
+E:\OwnGit\FascinatingHistory\APP_UserManage\DAL\bin\Debug\Helper.dll
+E:\OwnGit\FascinatingHistory\APP_UserManage\DAL\bin\Debug\Model.dll
+E:\OwnGit\FascinatingHistory\APP_UserManage\DAL\bin\Debug\MySql.Data.dll
+E:\OwnGit\FascinatingHistory\APP_UserManage\DAL\bin\Debug\log4net.dll
+E:\OwnGit\FascinatingHistory\APP_UserManage\DAL\bin\Debug\Helper.pdb
+E:\OwnGit\FascinatingHistory\APP_UserManage\DAL\bin\Debug\Model.pdb
+E:\OwnGit\FascinatingHistory\APP_UserManage\DAL\bin\Debug\log4net.xml
+E:\OwnGit\FascinatingHistory\APP_UserManage\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+E:\OwnGit\FascinatingHistory\APP_UserManage\DAL\obj\Debug\DAL.dll
+E:\OwnGit\FascinatingHistory\APP_UserManage\DAL\obj\Debug\DAL.pdb
