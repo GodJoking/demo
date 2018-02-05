@@ -41,7 +41,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                LogHelper.Info("李绪东",ex.ToString());
+                LogHelper.Error(ex);
             }
             return res;
         }
@@ -58,7 +58,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                LogHelper.Info("李绪东", ex.ToString());
+                LogHelper.Error(ex);
             }
             return null;
         }
@@ -79,7 +79,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                LogHelper.Info("李绪东", ex.ToString());
+                LogHelper.Error(ex);
             }
             return null;
         } 
@@ -95,20 +95,52 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                LogHelper.Info("李绪东", ex.ToString());
+                LogHelper.Error(ex);
+            }
+            return null;
+        }
+        #endregion
+
+        #region 根据手机号获取用户
+        public UserModel GetByMobile(string mobileNum)
+        {
+            try
+            {
+                string sql = "SELECT * FROM `user` WHERE mobileNum = @MobileNum;";
+                return EntityToModel(MySqlHelper.ExecuteDataRow(ConfigHelper.ConnStr, sql, new MySqlParameter("@MobileNum", mobileNum)));
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error(ex);
             }
             return null;
         } 
         #endregion
 
+        #region 根据token获取用户信息
+        public UserModel GetByToken(string token)
+        {
+            try
+            {
+                string sql = @"SELECT * FROM `user` WHERE userToken=@Token;";
+                return EntityToModel(MySqlHelper.ExecuteDataRow(ConfigHelper.ConnStr, sql, new MySqlParameter("@Token", token)));
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error(ex);
+            }
+            return null;
+        }
+
+        #endregion
         #region 插入用户
         public int Insert(UserModel user)
         {
             int id = 0;
             try
             {
-                string sql = @"INSERT INTO `user` (`userId`,`nickName`,`userAvatar`,`email`,`mobileNum`,`password`,`salt`,`userToken`,`tokenUpdateTime`,`appId`,`authorizedTypeId`,`openId`,`unionId`,`extra`,`registerTime`,`createTime`,`updateTime`,`createIP`,`systemTypeId`,`equipmentNum`,`isDel`)
-VALUES(@UserId,@NickName,@UserAvatar,@Email,@MobileNum,@Password,@Salt,@UserToken,@TokenUpdateTime,@AppId,@AuthorizedTypeId,@OpenId,@UnionId,@Extra,NOW(),NOW(),NOW(),@CreateIP,@SystemTypeId,@EquipmentNum,@IsDel);@@SELECT IDENTITY;";
+                string sql = @"INSERT INTO `user` (`userId`,`nickName`,`userAvatar`,`email`,`mobileNum`,`password`,`salt`,`userToken`,`tokenUpdateTime`,`tokenIsWork`,`authorizedTypeId`,`openId`,`unionId`,`extra`,`registerTime`,`createTime`,`updateTime`,`createIP`,`systemTypeId`,`equipmentNum`,`isDel`)
+VALUES(@UserId,@NickName,@UserAvatar,@Email,@MobileNum,@Password,@Salt,@UserToken,@TokenUpdateTime,@TokenIsWork,@AuthorizedTypeId,@OpenId,@UnionId,@Extra,NOW(),NOW(),NOW(),@CreateIP,@SystemTypeId,@EquipmentNum,@IsDel);@@SELECT IDENTITY;";
 
                 MySqlParameter[] param =
                 {
@@ -121,7 +153,7 @@ VALUES(@UserId,@NickName,@UserAvatar,@Email,@MobileNum,@Password,@Salt,@UserToke
                     new MySqlParameter("@Salt",ConfigHelper.Salt),
                     new MySqlParameter("@UserToken",user.UserToken),
                     new MySqlParameter("@TokenUpdateTime",user.TokenUpdateTime),
-                    new MySqlParameter("@AppId",ConfigHelper.AppId),
+                    new MySqlParameter("@TokenIsWork",user.TokenIsWork),
                     new MySqlParameter("@AuthorizedTypeId",user.AuthorizedTypeId),
                     new MySqlParameter("@OpenId",user.OpenId),
                     new MySqlParameter("@UnionId",user.UnionId),
@@ -136,7 +168,7 @@ VALUES(@UserId,@NickName,@UserAvatar,@Email,@MobileNum,@Password,@Salt,@UserToke
             }
             catch (Exception ex)
             {
-                LogHelper.Info("李绪东", ex.ToString());
+                LogHelper.Error(ex);
             }
             return id;
         }
@@ -148,7 +180,7 @@ VALUES(@UserId,@NickName,@UserAvatar,@Email,@MobileNum,@Password,@Salt,@UserToke
             bool res = false;
             try
             {
-                string sql = @"UPDATE `user` SET `realName`=@RealName,`idCard`=@IdCard,`userAvatar`=@UserAvatar,`email`=@Email,`mobileNum`=@MobileNum,`password`=@Password,`salt`=@Salt,`userToken`=@UserToken,`tokenCreateTime`=NOW(),`extra`=@Extra,`updateTime`=NOW();";
+                string sql = @"UPDATE `user` SET `realName`=@RealName,`idCard`=@IdCard,`userAvatar`=@UserAvatar,`email`=@Email,`mobileNum`=@MobileNum,`password`=@Password,`salt`=@Salt,`userToken`=@UserToken,`tokenCreateTime`=NOW(),`tokenIsWork`=@TokenIsWork,`extra`=@Extra,`updateTime`=NOW();";
                 MySqlParameter[] param =
                 {
                     new MySqlParameter("@RealName",user.RealName),
@@ -158,14 +190,15 @@ VALUES(@UserId,@NickName,@UserAvatar,@Email,@MobileNum,@Password,@Salt,@UserToke
                     new MySqlParameter("@MobileNum",user.MobileNum),
                     new MySqlParameter("@Password",user.Password),
                     new MySqlParameter("@Salt",user.Salt),
-                    new MySqlParameter("@UserToken",user.UserToken),
+                    new MySqlParameter("@UserToken",GUIDHelper.GenerateGUID()),
+                    new MySqlParameter("@TokenIsWork",user.TokenIsWork),
                     new MySqlParameter("@Extra",user.Extra),
                 };
                 res = MySqlHelper.ExecuteNonQuery(ConfigHelper.ConnStr, sql, param) > 0;
             }
             catch (Exception ex)
             {
-                LogHelper.Info("李绪东", ex.ToString());
+                LogHelper.Error(ex);
             }
             return res;
         }
@@ -182,7 +215,7 @@ VALUES(@UserId,@NickName,@UserAvatar,@Email,@MobileNum,@Password,@Salt,@UserToke
             }
             catch (Exception ex)
             {
-                LogHelper.Info("李绪东", ex.ToString());
+                LogHelper.Error(ex);
             }
             return res;
         } 
@@ -218,8 +251,10 @@ VALUES(@UserId,@NickName,@UserAvatar,@Email,@MobileNum,@Password,@Salt,@UserToke
                     model.UserToken = dr["userToken"].To<string>();
                 if (dr.Table.Columns.Contains("tokenCreateTime"))
                     model.TokenUpdateTime = dr["tokenCreateTime"].To<DateTime>();
-                if (dr.Table.Columns.Contains("appId"))
-                    model.AppId = dr["appId"].ToInt();
+                if (dr.Table.Columns.Contains("tokenIsWork"))
+                    model.TokenIsWork = dr["tokenIsWork"].ToInt();
+                //if (dr.Table.Columns.Contains("appId"))
+                //    model.AppId = dr["appId"].ToInt();
                 if (dr.Table.Columns.Contains("authorizedTypeId"))
                     model.AuthorizedTypeId = dr["authorizedTypeId"].ToInt();
                 if (dr.Table.Columns.Contains("openId"))

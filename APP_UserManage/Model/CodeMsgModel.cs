@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class BaseModel
+    [Serializable]
+    public partial class CodeMsgModel
     {
         public int Code { get; set; }
 
         public string Msg { get; set; }
-
-        public object Data { get; set; }
-
-        public string Desc { get; set; }
     }
 }

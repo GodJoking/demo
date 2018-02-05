@@ -2,6 +2,7 @@ using System.Web.Http;
 using WebActivatorEx;
 using APP_UserManage;
 using Swashbuckle.Application;
+using System.Linq;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
@@ -170,7 +171,7 @@ namespace APP_UserManage
                         // with the same path (sans query string) and HTTP method. You can workaround this by providing a
                         // custom strategy to pick a winner or merge the descriptions for the purposes of the Swagger docs
                         //
-                        //c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+                        c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
 
                         // Wrap the default SwaggerGenerator with additional behavior (e.g. caching) or provide an
                         // alternative implementation for ISwaggerProvider with the CustomProvider option.
@@ -254,7 +255,7 @@ namespace APP_UserManage
 
         public static string GetXmlCommentsPath()
         {
-            return System.String.Format(@"{0}\bin\\APP_UserManage.XML", System.AppDomain.CurrentDomain.BaseDirectory);
+            return System.String.Format(@"{0}\bin\APP_UserManage.XML", System.AppDomain.CurrentDomain.BaseDirectory);
         }
     }
 }

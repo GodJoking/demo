@@ -31,8 +31,8 @@ namespace Model
         public string UserToken { get; set; }
 
         public DateTime TokenUpdateTime { get; set; }
-
-        public int AppId { get; set; }
+        
+        public int TokenIsWork { get; set; }
 
         public int AuthorizedTypeId { get; set; }
 

@@ -481,20 +481,39 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
-        <member name="T:APP_UserManage.Controllers.UserInfoController">
-            <summary>
-            用户管理中心
-            </summary>
-        </member>
         <member name="M:APP_UserManage.Controllers.UserInfoController.ThirdPartyLogin(System.Int32,System.String,System.String,System.String,System.Int32)">
             <summary>
             第三方微信登录
             </summary>
             <param name="systemTypeId">系统类型id</param>
             <param name="equipmentNum">设备号</param>
-            <param name="openId"></param>
-            <param name="unionId"></param>
-            <param name="authorizedTypeId"></param>
+            <param name="openId">用户微信openId</param>
+            <param name="unionId">unionid</param>
+            <param name="authorizedTypeId">权限类型id</param>
+            <returns></returns>
+        </member>
+        <member name="M:APP_UserManage.Controllers.UserInfoController.BindMobile(System.String,System.String,System.String,System.String)">
+            <summary>
+            绑定新手机号
+            </summary>
+            <param name="token"></param>
+            <param name="mobileNum"></param>
+            <param name="password"></param>
+            <param name="checkCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:APP_UserManage.Controllers.UserInfoController.SendCode(System.String)">
+            <summary>
+            发送验证码
+            </summary>
+            <param name="mobileNum">手机号</param>
+            <returns></returns>
+        </member>
+        <member name="M:APP_UserManage.Controllers.UserInfoController.TokenLogin(System.String)">
+            <summary>
+            Token登录
+            </summary>
+            <param name="token"></param>
             <returns></returns>
         </member>
     </members>
