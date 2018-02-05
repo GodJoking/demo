@@ -47,6 +47,8 @@
     <Compile Include="CodeMsgModel.cs" />
     <Compile Include="Enum\CodeEnum.cs" />
     <Compile Include="LogInfoModel.cs" />
+    <Compile Include="OperateLogModel.cs" />
+    <Compile Include="OutUserModel.cs" />
     <Compile Include="RESTfulModel.cs" />
     <Compile Include="SMSCodeModel.cs" />
     <Compile Include="UserModel.cs" />

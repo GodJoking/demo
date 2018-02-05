@@ -8,3 +8,4 @@ E:\GITWork\APP_UserManage\Model\bin\Debug\Model.pdb
 E:\GITWork\APP_UserManage\Model\bin\Debug\Newtonsoft.Json.dll
 E:\GITWork\APP_UserManage\Model\obj\Debug\Model.dll
 E:\GITWork\APP_UserManage\Model\obj\Debug\Model.pdb
+E:\GITWork\APP_UserManage\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache

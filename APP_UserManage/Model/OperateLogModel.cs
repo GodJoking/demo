@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class LogInfoModel
+    public class OperateLogModel
     {
         public string UserId { get; set; }
 
-        public DateTime LoginTime { get; set; }
+        public int OperateTypeId { get; set; }
 
-        public string LoginIP { get; set; }
+        public DateTime OperateTime { get; set; }
 
-        public string SystemTypeId { get; set; }
+        public string OperateIP { get; set; }
+
+        public int SystemTypeId { get; set; }
 
         public string EquipmentNum { get; set; }
     }

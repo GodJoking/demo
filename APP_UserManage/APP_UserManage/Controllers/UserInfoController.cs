@@ -44,18 +44,34 @@ namespace APP_UserManage.Controllers
         public BaseModel BindUser(string token, string mobileNum, string password, string checkCode)
         {
             return userBLL.BindUser(token, mobileNum, password, checkCode);
+        }
+        #endregion
+
+        #region 完善用户信息
+        /// <summary>
+        /// 完善用户信息
+        /// </summary>
+        /// <param name="token"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public BaseModel CompleteInfo(string token, OutUserModel user)
+        {
+            return userBLL.CompleteUserInfo(token, user);
         } 
         #endregion
 
-        public BaseModel CompleteInfo(string token, UserModel user)
-        {
-            return null;
-        }
-
         #region 换绑定手机号
+        /// <summary>
+        /// 换绑定手机号
+        /// </summary>
+        /// <param name="token"></param>
+        /// <param name="password"></param>
+        /// <param name="mobileNum"></param>
+        /// <param name="checkCode"></param>
+        /// <returns></returns>
         public BaseModel ResetMobile(string token, string password, string mobileNum, string checkCode)
         {
-            return null;
+            return userBLL.ResetMobile(token, password, mobileNum, checkCode);
         } 
         #endregion
 

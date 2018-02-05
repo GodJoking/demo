@@ -204,6 +204,31 @@ VALUES(@UserId,@NickName,@UserAvatar,@Email,@MobileNum,@Password,@Salt,@UserToke
         }
         #endregion
 
+        public bool UpdateUserInfo(OutUserModel outUser)
+        {
+            bool res = false;
+            try
+            {
+                string sql = @"UPDATE `user` SET `realName`=@RealName,`idCard`=@IdCard,`userAvatar`=@UserAvatar,`email`=@Email,`mobileNum`=@MobileNum,`userToken`=@UserToken,`tokenCreateTime`=NOW(),`extra`=@Extra,`updateTime`=NOW();";
+                MySqlParameter[] param =
+                {
+                    new MySqlParameter("@RealName",outUser.RealName),
+                    new MySqlParameter("@IdCard",outUser.IdCard),
+                    new MySqlParameter("@UserAvatar",outUser.UserAvatar),
+                    new MySqlParameter("@Email",outUser.Email),
+                    new MySqlParameter("@MobileNum",outUser.MobileNum),
+                    new MySqlParameter("@UserToken",GUIDHelper.GenerateGUID()),
+                    new MySqlParameter("@Extra",outUser.Extra),
+                };
+                res = MySqlHelper.ExecuteNonQuery(ConfigHelper.ConnStr, sql, param) > 0;
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error(ex);
+            }
+            return res;
+        }
+
         #region 删除用户
         public bool Delete(string UserId)
         {

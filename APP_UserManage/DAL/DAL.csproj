@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodeMsgDAL.cs" />
+    <Compile Include="LoginLogDAL.cs" />
+    <Compile Include="OperateLogDAL.cs" />
     <Compile Include="SMSCodeDAL.cs" />
     <Compile Include="UserInfoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

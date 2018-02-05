@@ -14,6 +14,7 @@ namespace BLL
     {
         private UserInfoDAL userDAL = new UserInfoDAL();
         private SMSCodeDAL smsCodeDAL = new SMSCodeDAL();
+        private LoginLogDAL loginDAL = new LoginLogDAL();
 
         #region 第三方登录
         public BaseModel ThirdPartyLogin(int systemTypeId, string equipmentNum, string openId, string unionId, int authorizedTypeId)
@@ -192,7 +193,7 @@ namespace BLL
         #endregion
 
         #region 绑定新手机号
-        public BaseModel ResetMobile(string token, string mobileNum, string smsCode, string password)
+        public BaseModel ResetMobile(string token, string password, string mobileNum, string smsCode)
         {
             try
             {
@@ -376,6 +377,37 @@ namespace BLL
                 LogHelper.Error(ex);
                 return new BaseModel() { Code = (int)CodeEnum.系统异常, Msg = CodeMsgDAL.GetByCode((int)CodeEnum.系统异常) };
             }
+        }
+        #endregion
+
+        #region 完善用户信息
+        public BaseModel CompleteUserInfo(string token, OutUserModel model)
+        {
+            #region 非数据库端验证token
+            BaseModel cv_Token = ClientValidateToken(token);
+            if (cv_Token.Code != 0)
+            {
+                return cv_Token;
+            }
+            #endregion
+
+            UserModel TokenModel = userDAL.GetByToken(token);
+            #region 数据库端验证token
+            BaseModel sv_Token = ServerValidateToken(TokenModel);
+            if (sv_Token.Code != 0)
+            {
+                return sv_Token;
+            }
+            #endregion
+            if (token == model.Token)
+            {
+                userDAL.UpdateUserInfo(model);
+            }
+            else
+            {
+                return new BaseModel() { Code = (int)CodeEnum.Token无效, Msg = "请求的Token和要修改的用户Token不一致" };
+            }
+            return new BaseModel() { Code = (int)CodeEnum.成功, Msg = CodeMsgDAL.GetByCode((int)CodeEnum.成功) };
         } 
         #endregion
 

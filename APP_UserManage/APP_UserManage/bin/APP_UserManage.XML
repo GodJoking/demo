@@ -481,6 +481,13 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="M:APP_UserManage.Controllers.BaseController.IsIP(System.String)">
+            <summary>
+            检查IP地址格式
+            </summary>
+            <param name="ip"></param>
+            <returns></returns>
+        </member>
         <member name="M:APP_UserManage.Controllers.UserInfoController.ThirdPartyLogin(System.Int32,System.String,System.String,System.String,System.Int32)">
             <summary>
             第三方微信登录
@@ -492,7 +499,7 @@
             <param name="authorizedTypeId">权限类型id</param>
             <returns></returns>
         </member>
-        <member name="M:APP_UserManage.Controllers.UserInfoController.BindMobile(System.String,System.String,System.String,System.String)">
+        <member name="M:APP_UserManage.Controllers.UserInfoController.BindUser(System.String,System.String,System.String,System.String)">
             <summary>
             绑定新手机号
             </summary>
@@ -500,6 +507,31 @@
             <param name="mobileNum"></param>
             <param name="password"></param>
             <param name="checkCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:APP_UserManage.Controllers.UserInfoController.CompleteInfo(System.String,Model.OutUserModel)">
+            <summary>
+            完善用户信息
+            </summary>
+            <param name="token"></param>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:APP_UserManage.Controllers.UserInfoController.ResetMobile(System.String,System.String,System.String,System.String)">
+            <summary>
+            换绑定手机号
+            </summary>
+            <param name="token"></param>
+            <param name="password"></param>
+            <param name="mobileNum"></param>
+            <param name="checkCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:APP_UserManage.Controllers.UserInfoController.LogOut(System.String)">
+            <summary>
+            登出
+            </summary>
+            <param name="token"></param>
             <returns></returns>
         </member>
         <member name="M:APP_UserManage.Controllers.UserInfoController.SendCode(System.String)">
